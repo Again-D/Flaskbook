@@ -1,6 +1,6 @@
 from pathlib import Path
 
-baseDir = Path(__file__).parent
+baseDir = Path(__file__).parent.parent
 
 
 # BaseConfig 클래스 작성
