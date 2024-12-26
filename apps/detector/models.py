@@ -12,3 +12,14 @@ class UserImage(db.Model):
     is_detected = db.Column(db.Boolean, default=False)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+
+
+class UserImageTag(db.Model):
+    # 테이블 명을 지정한다
+    __tablename__ = "user_image_tags"
+    id = db.Column(db.Integer, primary_key=True)
+    # user_image_id는 user_images 테이블의 id 컬럼을 외부 키로 설정한다
+    user_image_id = db.Column(db.String, db.ForeignKey("user_images.id"))
+    tag_name = db.Column(db.String)
+    create_at = db.Column(db.DateTime, default=datetime.now)
+    update_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
