@@ -128,7 +128,7 @@ def exec_detect(target_image_path):
     model = model.eval()
     # 추론의 실행
     output = model([image_tensor])[0]
-    
+
     tags = []
     result_image = np.array(image.copy())
     # 학습 완료 모델이 감지한 각 물체 만큼 이미지에 덧붙여 씀
@@ -142,4 +142,7 @@ def exec_detect(target_image_path):
             c1 = (int(box[0]), int(box[1]))
             c2 = (int(box[2]), int(box[3]))
             # 이미지에 테두리 선을 덧붙여 씀
-            cv2= draw_lines(c1, c2, result_image)
+            cv2 = draw_lines(c1, c2, result_image, line, color)
+            # 이미지에 텍스트 라벨을 덧부텽 씀
+            cv2 = draw_texts(result_image, line, c1, cv2, color, labels, label)
+            tags.append(labels[label])
