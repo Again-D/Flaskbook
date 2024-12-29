@@ -1,7 +1,7 @@
 # 경로 작업
 from pathlib import Path
 
-from flask import Flask
+from flask import Flask, render_template
 
 # flask-login에 있는 LoginManager를 import
 from flask_login import LoginManager
@@ -73,4 +73,18 @@ def create_app(config_key):
     # register_blueprint를 사용해 views의 dt를 앱에 등록한다
     app.register_blueprint(dt_views.dt)
 
+    # 커스텀 오류 화면을 등록한다
+    app.register_error_handler(404, page_not_found)
+    app.register_error_handler(500, internal_server_error)
+
     return app
+
+
+def page_not_found(e):
+    """404 Not FOund"""
+    return render_template("404.html"), 404
+
+
+def internal_server_error(e):
+    """500 Internal Server Error"""
+    return render_template("500.html"), 500
