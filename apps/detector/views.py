@@ -169,7 +169,7 @@ def exec_detect(target_image_path):
             c2 = (int(box[2]), int(box[3]))
             # 이미지에 테두리 선을 덧붙여 씀
             cv2 = draw_lines(c1, c2, result_image, line, color)
-            # 이미지에 텍스트 라벨을 덧부텽 씀
+            # 이미지에 텍스트 라벨을 덧붙여 씀
             cv2 = draw_texts(result_image, line, c1, cv2, color, labels, label)
             tags.append(labels[label])
 
@@ -208,7 +208,7 @@ def detect(image_id):
     # user_images 테이블로부터 레코드를 가져온다
     user_image = db.session.query(UserImage).filter(UserImage.id == image_id).first()
     if user_image is None:
-        flash("물체 감지 대상의 이미지가 존재하지 않습니다")
+        flash("물체 감지 대상의 이미지가 존재하지 않습니다.")
         return redirect(url_for("detector.index"))
 
     # 물체 감지 대상의 이미지 경로를 가져온다

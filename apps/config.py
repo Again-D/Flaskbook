@@ -117,6 +117,8 @@ class TestingConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{baseDir / 'testing.sqlite'}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     WTF_CSRF_ENABLED = False
+    # 이미지 업로드처에 tests/detector/images를 지정한다
+    UPLOAD_FOLDER = str(Path(baseDir, "tests", "detector", "images"))
 
 
 # 실제 상황

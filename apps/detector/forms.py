@@ -8,7 +8,7 @@ class UploadImageForm(FlaskForm):
     image = FileField(
         validators=[
             FileRequired("이미지 파일을 지정해주세요."),
-            FileAllowed(["jpg", "png"], "이미지 파일만 업로드 가능합니다."),
+            FileAllowed(["jpg", "png"], "지원되지 않는 이미지 형식입니다."),
         ]
     )
     submit = SubmitField("업로드")
