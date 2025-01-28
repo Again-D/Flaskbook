@@ -7,6 +7,9 @@ instance/*
 .webassets-cache
 .env
 
+### images ###
+*.jpg
+
 ### Flask.Python Stack ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -135,6 +138,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
 
 # Spyder project settings
 .spyderproject
@@ -291,3 +295,9 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,python,visualstudiocode,flask
+venv/pyvenv.cfg
+venv/Scripts/activate
+venv/Scripts/activate.bat
+venv/Scripts/Activate.ps1
+venv/Scripts/python.exe
+venv/Scripts/pythonw.exe
