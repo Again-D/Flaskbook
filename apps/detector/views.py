@@ -37,6 +37,7 @@ dt = Blueprint("detector", __name__, template_folder="templates")
 # dt 애플리케이션을 사용하여 엔드포인트를 작성한다
 @dt.route("/")
 def index():
+    # raise Exception()  # 500 에러 확인 용
     # User와 UserImage를 Join 해서 이미지 일람을 취득한다
     user_images = (
         db.session.query(User, UserImage)
