@@ -150,7 +150,9 @@ def exec_detect(target_image_path):
     # 이미지 데이터를 텐서 타입의 수치 데이터로 변환
     image_tensor = torchvision.transforms.functional.to_tensor(image)
     # 학습 완료 모델의 읽어 들이기
-    model = torch.load(Path(current_app.root_path, "detector", "model.pt"))
+    model = torch.load(
+        Path(current_app.root_path, "detector", "model.pt"), weights_only=False
+    )
     # 모델의 추론 모드로 전환
     model = model.eval()
     # 추론의 실행
